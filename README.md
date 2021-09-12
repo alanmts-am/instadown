@@ -10,9 +10,9 @@ Aqui precisaremos que você informe alguns dados em dois arquivos:
 * date.txt
 * profiles.txt
 
-Para o primeiro arquivo, é preciso que informe a data inicial da busca. A data final sempre será a data atual, de hoje:
+Para o primeiro arquivo, é preciso que informe a data inicial da busca. A data final sempre será a data atual, de hoje.
+Padrão da data:
 ```Python
-Padrão da data
 DIA/MES/ANO
 ```
 
@@ -30,7 +30,7 @@ Por exemplo:
 instagram;C://User//Teste//Downloads//Instagram
 ```
 
-## Todos os Posts
+## Todos os Posts (down_all.py)
 
 Aqui temos o download de todos os posts salvos em determinados perfil
 
