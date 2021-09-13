@@ -15,9 +15,12 @@ SINCE = datetime(int(listInitial[2]), int(listInitial[1]), int(listInitial[0]))
 UNTIL = datetime(int(listFinal[2]), int(listFinal[1]), int(listFinal[0]))
 
 with open(PROFILES_FILE, 'r') as file:
-    line_itens = file.readline().split(';')
+    line_itens = file.readlines()
+    
+for line_item in line_itens:
+    line_list = line_item.split(';')
 
-    create_directory(line_itens[0])
-    get_data_posts(line_itens[0], line_itens[0], SINCE, UNTIL)
+    create_directory(line_list[0])
+    get_data_posts(line_list[0], line_list[0], SINCE, UNTIL)
 
 write_new_date(DATE_FILE, FINAL_DATE)
