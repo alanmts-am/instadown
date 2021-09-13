@@ -7,12 +7,12 @@ def get_data_posts(user, folder, since, until):
     posts = instaloader.Profile.from_username(L.context, user).get_posts()
 
     for post in posts:
-        if (post.date > since) and (post.date <= until):
+        if (post.date >= since) and (post.date <= until):
             print("Baixando... ")
             L.download_post(post, user)
             extract_posts_only(folder, user)
             print("\nArquivos até aqui de " + user + ": " + str(count_posts(folder)) + "\n")
-        else: 
+        elif post.date < since: 
             break
     
     print("\nArquivos totais de " + user + ": " + str(count_posts(folder)) + "\n")
