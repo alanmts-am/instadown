@@ -1,5 +1,5 @@
 from datetime import datetime
-from posts import get_data_posts
+from src.posts import get_data_posts
 from utils.create import create_directory
 from utils.extract import extract_data
 from utils.file import get_initial_date, write_new_date

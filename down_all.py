@@ -1,4 +1,4 @@
-from posts import  get_all_posts
+from src.posts import  get_all_posts
 from utils.create import create_directory
 
 PROFILES_FILE = 'profiles.txt'
