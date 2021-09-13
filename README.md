@@ -36,6 +36,11 @@ Aqui temos o download de todos os posts salvos em determinados perfil
 
 Vale apenas a configuração do arquivo profiles.txt
 
+## Arquivos baixados
+
+Os arquivos baixados ficarão na pasta raiz do projeto com os nomes dos usuários. 
+Para move-los, basta rodar o arquivo move_files.py. O mesmo usará o destino informado no segundo parametro do arquivo profiles.txt
+
 ## Motor de Busca
 
 ### Instaloader 
