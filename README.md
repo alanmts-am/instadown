@@ -36,6 +36,33 @@ Aqui temos o download de todos os posts salvos em determinados perfil
 
 Vale apenas a configuração do arquivo profiles.txt
 
+## Stories (down_stories.py)
+
+Para baixar os stories de uma conta, é preciso indicar o seu usuário e senha para que o processo possa ocorrer. Existe duas formas de fazer isso:
+* Arquivo .env (Variável de ambiente)
+* Ao lançar o arquivo, com argumentos
+
+OBS: os profiles das contas ficarão salvos no arquivo profiles.txt
+
+### .env
+
+O arquivo vem com a indicação de duas variáveis para ser inserida:
+```Python
+USERNAME = 'USERNAME'
+PASSWORD = 'PASSWORD'
+```
+
+Quando o arquivo for rodado sem argumentos, ele buscará os dados destas variáveis
+
+### Variáveis de ambiente
+
+Aqui precisamos rodar o programa em linha de comando com os argumentos. Veja o exemplo abaixo:
+```Python
+{CAMINHO_DO_ARQUIVO}/down_stories.py -u teste -p abcd1234
+```
+Perceba os argumentos passados:
+* -u ou -user -> usuário
+* -p ou -pass -> senha
 ## Arquivos baixados
 
 Os arquivos baixados ficarão na pasta raiz do projeto com os nomes dos usuários. 
