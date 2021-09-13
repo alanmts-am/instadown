@@ -4,7 +4,7 @@ Aqui temos o sistema que baixa posts do Instagram de determinados perfils listad
 
 Podem ser baixados arquivos de determinadas data de inicio e fim ou todos os dados.
 
-## Post por data (down_by_date.py)
+## Post por data (down_posts_by_date.py)
 
 Aqui precisaremos que você informe alguns dados em dois arquivos:
 * date.txt
@@ -30,7 +30,7 @@ Por exemplo:
 instagram;C://User//Teste//Downloads//Instagram
 ```
 
-## Todos os Posts (down_all.py)
+## Todos os Posts (down_all_posts.py)
 
 Aqui temos o download de todos os posts salvos em determinados perfil
 
