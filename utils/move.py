@@ -14,3 +14,6 @@ def move_posts(source_dir, target_dir):
         os.rmdir(source_dir)
     except:
         print('Alguns arquivos que tentamos mover já se encontram na pasta de destino. Por favor, verificar os dados da pasta destino antes de mover')
+
+def move_dirs(source, target):
+    shutil.move(source, target)
