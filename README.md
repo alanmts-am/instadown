@@ -7,17 +7,21 @@ Podem ser baixados de determinadas datas de inicio e fim ou todos os dados.
 ## Variáveis de ambiente
 
 Aqui precisamos rodar o programa em linha de comando com os argumentos. Veja o exemplo abaixo:
-```Python
-{CAMINHO_DO_ARQUIVO}/insta_down.py -u teste -p abcd1234
-```
 ```Shell
-Perceba os argumentos passados:
+{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 31/07/2021 --download-dir D:\User\Example\Images\Instagram
+```
+```MarkDown
+Entendendo cada argumento:
   --post ou --story -> indica o tipo de download a ser feito 
-  --user ou -u -> usuário
-  --pass ou -p -> senha
-  --idate ou -id -> data inicial do post
-  --fdate ou -fd -> data final do post
-  --profile -> indicar um perfil específico para realizar o download
+  --profile -> indicar um perfil específico para realizar o download. Caso não informado, buscará do arquivo padrão
+  --idate -> data inicial dos posts
+  --fdate -> data final dos posts
+  --download-dir -> pasta onde os download serão salvos. Caso não fornecido, será usada a pasta padrão
+
+Outros comandos:
+  --user -> usuário
+  --pass -> senha
+  --profile-file -> arquivo onde serão buscados os perfis. Caso não informado, será usado o arquivo padrão
 ```
 
 Alguns argumentos precisam ser passados em conjunto para o resultado desejado. Veremos mais abaixo em seus tópicos
@@ -26,15 +30,19 @@ Alguns argumentos precisam ser passados em conjunto para o resultado desejado. V
 
 Aqui precisaremos que você informe primeiramente alguns dados em um arquivo:
 * profiles.txt
-
-Para isso, você deve informar os dados de usuário da plataforma e pasta de destino do download daquele perfil, seguindo o padrão:
-
-```Python
-USERNAME;DIRECTORY
+  
+OBS: este é nome padrão do arquivo de usuários. Para informar um arquivo diferente, basta usar o argumento --profile-file
+```Shell
+{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profle-file teste.txt --idate 01/01/2021 --fdate 10/01/2021
 ```
-Por exemplo:
+
+É importante que o arquivo seja do tipo txt e que cada usuário seja posto em uma linha, caso contrário, o programa pode não funcionar devidamente
+
 ```Python
-instagram;C://User//Teste//Downloads//Instagram
+USERNAME1
+USERNAME2
+USERNAME2
+...
 ```
 
 Estas informações serão usadas mais a frente pelos comandos
@@ -64,20 +72,18 @@ Por exemplo, basta o tipo, perfil e os argumentos de data:
 {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 10/01/2021
 ```
 
-Já a situação onde seja necessário buscar através da lista de perfis(profiles.txt), basta omitir o argumento --profile:
+Já a situação onde seja necessário buscar através da lista de perfis, basta omitir o argumento --profile:
 ```Shell
 {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021
 ```
 
 ## Mover arquivos
 
-Aqui, usaremos o segundo item do arquivo de perfis, onde serão enviadas as fotos geradas pelo programa.
+Por padrão, todas as pastas são salvas em 'files', cada uma em seu respectivo user.
 
-Elas se reunen na pasta 'files' da raiz
-
-O arquivo move_files usará o caminho informado no arquivo para realizar o processo
+Caso deseje informar um novo arquivo para onde os imagens devam ir, basta utilizar o argumento --download-dir
 ```Shell
-{CAMINHO_DO_ARQUIVO}/move_files.py
+{CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
 ```
 
 ## Stories
