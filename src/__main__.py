@@ -58,11 +58,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--post', action='store_true', dest='post', default=None, help='Indicativo de download dos posts')
     parser.add_argument('--story', action='store_true', dest='story', default=None, help='Indicativo de download dos stories')
-    parser.add_argument('-u', '--user', action='store', dest='username', default=None, help='Insira o seu usuário')
-    parser.add_argument('-p', '--pass', action='store', dest='password', default=None, help='Insira a sua senha')
-    parser.add_argument('-id', '--idate', action='store', dest='initial_date', default=None, help='Insira a data inicial dos downloads')
-    parser.add_argument('-fd', '--fdate', action='store', dest='final_date', default=None, help='Insira a data final dos downloads')
-    parser.add_argument('-prof', '--profile', action='store', dest='profile', default=None, help='Insira user específico do download')
+    parser.add_argument('--user', action='store', dest='username', default=None, help='Insira o seu usuário')
+    parser.add_argument('--pass', action='store', dest='password', default=None, help='Insira a sua senha')
+    parser.add_argument('--idate', action='store', dest='initial_date', default=None, help='Insira a data inicial dos downloads')
+    parser.add_argument('--fdate', action='store', dest='final_date', default=None, help='Insira a data final dos downloads')
+    parser.add_argument('--profile', action='store', dest='profile', default=None, help='Insira user específico do download')
     args = parser.parse_args()
 
     if (not args.post and not args.story):
