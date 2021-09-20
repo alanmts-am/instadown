@@ -2,8 +2,6 @@ import argparse
 import sys
 from datetime import datetime
 
-import dotenv
-
 from src.posts import get_all_posts, get_data_posts
 from utils.create import create_directory
 from utils.extract import extract_data
