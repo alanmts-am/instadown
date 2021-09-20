@@ -17,11 +17,10 @@ def download_all_posts_from_file(profiles_file, target_dir):
         line_itens = file.readlines()
     
     for line_item in line_itens:
-        line_item_list = line_item.split(';')
-
-        create_directory(line_item_list[0])
-        get_all_posts(line_item_list[0], line_item_list[0])
-        move_dirs(line_item_list[0], target_dir)
+        line_item = line_item.replace('\n', '')
+        create_directory(line_item)
+        get_all_posts(line_item, line_item)
+        move_dirs(line_item, target_dir)
 
 def download_all_posts_from_profile(profile, target_dir):
     create_directory(profile)
@@ -39,11 +38,10 @@ def download_post_by_date_from_file(profiles_file, initial_date, final_date, tar
         
     create_directory(target_dir)
     for line_item in line_itens:
-        line_item_list = line_item.split(';')
-    
-        create_directory(line_item_list[0])
-        get_data_posts(line_item_list[0], line_item_list[0], SINCE, UNTIL)
-        move_dirs(line_item_list[0], target_dir)
+        line_item = line_item.replace('\n', '')
+        create_directory(line_item)
+        get_data_posts(line_item, line_item, SINCE, UNTIL)
+        move_dirs(line_item, target_dir)
 
 def download_post_by_date_from_profile(profiles_name, initial_date, final_date, target_dir):
     listInitial = extract_data(initial_date)
