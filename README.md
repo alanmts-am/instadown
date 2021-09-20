@@ -81,7 +81,7 @@ Já a situação onde seja necessário buscar através da lista de perfis, basta
 
 Por padrão, todas as pastas são salvas em 'files', cada uma em seu respectivo user.
 
-Caso deseje informar um novo arquivo para onde os imagens devam ir, basta utilizar o argumento --download-dir
+Caso deseje informar um novo arquivo para onde as imagens devam ir, basta utilizar o argumento --download-dir
 ```Shell
 {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
 ```
@@ -92,7 +92,7 @@ A funcionalidade está em desenvolvimento.
 ## Motor de Busca
 
 Todos os créditos devem ser dados ao módulo Python do projeto instaloader.  
-Este projeto é apenas uma lógica mais direta da ideia inicial.
+Nosso projeto é apenas uma lógica mais direta da ideia inicial.
 ### Instaloader Links
 [Manual](https://instaloader.github.io/) - 
 [Github](https://github.com/instaloader/instaloader)
