@@ -8,7 +8,7 @@ Podem ser baixados de determinadas datas de inicio e fim ou todos os dados.
 
 Aqui precisamos rodar o programa em linha de comando com os argumentos. Veja o exemplo abaixo:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 31/07/2021 --download-dir D:\User\Example\Images\Instagram
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 31/07/2021 --download-dir D:\User\Example\Images\Instagram
 ```
 ```MarkDown
 Entendendo cada argumento:
@@ -33,7 +33,7 @@ Aqui precisaremos que você informe primeiramente alguns dados em um arquivo:
   
 OBS: este é nome padrão do arquivo de usuários. Para informar um arquivo diferente, basta usar o argumento --profile-file
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profle-file teste.txt --idate 01/01/2021 --fdate 10/01/2021
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profle-file teste.txt --idate 01/01/2021 --fdate 10/01/2021
 ```
 
 É importante que o arquivo seja do tipo txt e que cada usuário seja posto em uma linha, caso contrário, o programa pode não funcionar devidamente
@@ -53,14 +53,14 @@ Aqui temos o comando onde podem ser gerados todos os posts de um determinado per
 
 Por exemplo:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram
 ```
 
 Já quando quisermos gerar os posts de todos os perfis listados no arquivo profiles, basta omitir o argumento --profile
 
 Por exemplo, basta informar apenas o tipo:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post
 ```
 
 ## Todos os post por data
@@ -69,12 +69,12 @@ Aqui temos o comando onde podem ser gerados todos os posts em determinado period
 
 Por exemplo, basta o tipo, perfil e os argumentos de data:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 10/01/2021
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 10/01/2021
 ```
 
 Já a situação onde seja necessário buscar através da lista de perfis, basta omitir o argumento --profile:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021
 ```
 
 ## Mover arquivos
@@ -83,7 +83,7 @@ Por padrão, todas as pastas são salvas em 'files', cada uma em seu respectivo 
 
 Caso deseje informar um novo arquivo para onde as imagens devam ir, basta utilizar o argumento --download-dir
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
 ```
 
 ## Stories 
@@ -92,12 +92,12 @@ A funcionalidade segue os mesmos moldes do que já se vem sendo visto, necessita
 
 Para os casos onde os mesmos serão extraídos do arquivo profiles:
 ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --story --username teste --password abcd1234
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --story --username teste --password abcd1234
 ```
 
 Já quando necessitar informar perfil específico, basta inserir o argumento --profile
  ```Shell
-{CAMINHO_DO_ARQUIVO}/insta_down.py --story --profile instagram --username teste --password abcd1234
+py {CAMINHO_DO_ARQUIVO}/insta_down.py --story --profile instagram --username teste --password abcd1234
 ```
 
 Perceba que os stories não há verificação temporal devido a sua natureza de ficar visualizavel por 24h
