@@ -86,9 +86,21 @@ Caso deseje informar um novo arquivo para onde as imagens devam ir, basta utiliz
 {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
 ```
 
-## Stories
+## Stories 
 
-A funcionalidade está em desenvolvimento.
+A funcionalidade segue os mesmos moldes do que já se vem sendo visto, necessitando agora da inserção de usuário e senha além do argumento --story ao invés de --post.
+
+Para os casos onde os mesmos serão extraídos do arquivo profiles:
+```Shell
+{CAMINHO_DO_ARQUIVO}/insta_down.py --story --username teste --password abcd1234
+```
+
+Já quando necessitar informar perfil específico, basta inserir o argumento --profile
+ ```Shell
+{CAMINHO_DO_ARQUIVO}/insta_down.py --story --profile instagram --username teste --password abcd1234
+```
+
+Perceba que os stories não há verificação temporal devido a sua natureza de ficar visualizavel por 24h
 ## Motor de Busca
 
 Todos os créditos devem ser dados ao módulo Python do projeto instaloader.  
