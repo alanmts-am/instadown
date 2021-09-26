@@ -1,11 +1,10 @@
 import argparse
 import sys
-from datetime import datetime
 
 from src.posts import get_all_posts, get_data_posts
 from src.stories import get_stories
 from utils.create import create_directory
-from utils.extract import extract_data
+from utils.extract import extract_data, increase_data_days
 from utils.move import move_dirs
 
 def download_all_posts_from_file(profiles_file, target_dir):
@@ -24,10 +23,8 @@ def download_all_posts_from_profile(profile, target_dir):
     move_dirs(profile, target_dir)
 
 def download_post_by_date_from_file(profiles_file, initial_date, final_date, target_dir):
-    listInitial = extract_data(initial_date)
-    listFinal = extract_data(final_date)
-    SINCE = datetime(int(listInitial[2]), int(listInitial[1]), int(listInitial[0]))
-    UNTIL = datetime(int(listFinal[2]), int(listFinal[1]), int(listFinal[0]))
+    SINCE = extract_data(initial_date)
+    UNTIL = increase_data_days(final_date, 1)
     
     with open(profiles_file, 'r') as file:
         line_itens = file.readlines()
@@ -40,10 +37,8 @@ def download_post_by_date_from_file(profiles_file, initial_date, final_date, tar
         move_dirs(line_item, target_dir)
 
 def download_post_by_date_from_profile(profiles_name, initial_date, final_date, target_dir):
-    listInitial = extract_data(initial_date)
-    listFinal = extract_data(final_date)
-    SINCE = datetime(int(listInitial[2]), int(listInitial[1]), int(listInitial[0]))
-    UNTIL = datetime(int(listFinal[2]), int(listFinal[1]), int(listFinal[0]))
+    SINCE = extract_data(initial_date)
+    UNTIL = increase_data_days(final_date, 1)
 
     create_directory(profiles_name)
     create_directory(target_dir)
