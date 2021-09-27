@@ -1,4 +1,5 @@
 import argparse
+from datetime import datetime
 import sys
 
 from utils.create import create_directory
@@ -66,6 +67,7 @@ def main():
     parser.add_argument('--password', action='store', dest='password', default=None, help='Insira a sua senha')
     parser.add_argument('--idate', action='store', dest='initial_date', default=None, help='Insira a data inicial dos downloads')
     parser.add_argument('--fdate', action='store', dest='final_date', default=None, help='Insira a data final dos downloads')
+    parser.add_argument('--today', action='store_true', dest='today', default=None, help='Indicativo de data atual do idate e fdate')
     parser.add_argument('--profile', action='store', dest='profile', default=None, help='Insira user específico do download')
     parser.add_argument('--profile-file', action='store', dest='profile_file', default='profiles.txt', help='Insira o caminho e tipo do arquivo de profiles')
     parser.add_argument('--download-dir', action='store', dest='download_dir', default='files', help='Insira o caminho da pasta de download padrão')
@@ -78,14 +80,22 @@ def main():
 
     if args.post and not args.story: # post section
         if args.profile is None: # No profile, just from file
-            if (args.initial_date is None and args.final_date is None):
+            if(args.today):
+                today = datetime.today().strftime('%d/%m/%Y')
+                download_post_by_date_from_file(args.profile_file, today, today, args.download_dir)
+            
+            elif (args.initial_date is None and args.final_date is None):
                 download_all_posts_from_file(args.profile_file, args.download_dir)
 
             elif (args.initial_date != None and args.final_date != None):
                 download_post_by_date_from_file(args.profile_file, args.initial_date, args.final_date, args.download_dir)
 
         elif args.profile != None: # profile found
-            if (args.initial_date is None and args.final_date is None):
+            if(args.today):
+                today = datetime.today().strftime('%d/%m/%Y')
+                download_post_by_date_from_profile(args.profile, today, today, args.download_dir)
+
+            elif (args.initial_date is None and args.final_date is None):
                 download_all_posts_from_profile(args.profile, args.download_dir)
 
             elif (args.initial_date != None and args.final_date != None):
