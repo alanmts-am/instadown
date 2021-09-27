@@ -67,20 +67,19 @@ def main():
     parser.add_argument('--password', action='store', dest='password', default=None, help='Insira a sua senha')
     parser.add_argument('--idate', action='store', dest='initial_date', default=None, help='Insira a data inicial dos downloads')
     parser.add_argument('--fdate', action='store', dest='final_date', default=None, help='Insira a data final dos downloads')
-    parser.add_argument('--today', action='store_true', dest='today', default=None, help='Indicativo de data atual do idate e fdate')
+    parser.add_argument('--today', action='store_true', dest='today', default=None, help='Indicativo de data atual para o idate e fdate')
     parser.add_argument('--profile', action='store', dest='profile', default=None, help='Insira user específico do download')
     parser.add_argument('--profile-file', action='store', dest='profile_file', default='profiles.txt', help='Insira o caminho e tipo do arquivo de profiles')
     parser.add_argument('--download-dir', action='store', dest='download_dir', default='files', help='Insira o caminho da pasta de download padrão')
     args = parser.parse_args()
 
     if (not args.post and not args.story):
-        print('É necessário pelo menos a indicação de um dos comandos --post ou --story\n')
-        parser.print_usage()
+        print('É necessário pelo menos a indicação de um dos comandos --post ou --story\n\nUtilize o argumento --help para verificar a forma correta')
         sys.exit()
 
-    if args.post and not args.story: # post section
+    elif args.post and not args.story: # post section
         if args.profile is None: # No profile, just from file
-            if(args.today):
+            if(args.today and (args.initial_date is None and args.final_date is None)):
                 today = datetime.today().strftime('%d/%m/%Y')
                 download_post_by_date_from_file(args.profile_file, today, today, args.download_dir)
             
@@ -90,8 +89,12 @@ def main():
             elif (args.initial_date != None and args.final_date != None):
                 download_post_by_date_from_file(args.profile_file, args.initial_date, args.final_date, args.download_dir)
 
+            else:
+                print('Argumentos utilizados incorretamente\n\nUtilize o argumento --help para verificar a forma correta')
+                sys.exit()
+
         elif args.profile != None: # profile found
-            if(args.today):
+            if(args.today and (args.initial_date is None and args.final_date is None)):
                 today = datetime.today().strftime('%d/%m/%Y')
                 download_post_by_date_from_profile(args.profile, today, today, args.download_dir)
 
@@ -101,13 +104,17 @@ def main():
             elif (args.initial_date != None and args.final_date != None):
                 download_post_by_date_from_profile(args.profile, args.initial_date, args.final_date, args.download_dir)
 
-    if not args.post and args.story: # story section
+            else:
+                print('Argumentos utilizados incorretamente\n\nUtilize o argumento --help para verificar a forma correta')
+                sys.exit()
+
+    elif not args.post and args.story: # story section
         if args.profile is None: # No profile, just from file
             if(args.username != None or args.password != None):
                 download_story_from_file(args.username, args.password, args.profile_file, args.download_dir)
         elif args.profile != None:
             if(args.username != None or args.password != None):
                 download_story_from_profile(args.username, args.password, args.profile, args.download_dir)
-
+    
 if __name__ == '__main__':
     main()
