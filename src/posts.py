@@ -1,12 +1,15 @@
 import os
+
 import instaloader
+from utils.create import create_directory
 from utils.extract import extract_posts_only
+
 
 def get_data_posts(user, folder, since, until):
     try:
         L = instaloader.Instaloader()
         posts = instaloader.Profile.from_username(L.context, user).get_posts()
-
+        create_directory(user)
         for post in posts:
             if (post.date >= since) and (post.date <= until):
                 print("Baixando... ")
@@ -25,7 +28,7 @@ def get_all_posts(user, folder):
     try:
         L = instaloader.Instaloader()
         posts = instaloader.Profile.from_username(L.context, user).get_posts()
-
+        create_directory(user)
         for post in posts:
             print("Baixando... ")
             L.download_post(post, user)
