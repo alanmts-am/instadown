@@ -16,6 +16,7 @@ Entendendo cada argumento:
   --profile -> indicar um perfil específico para realizar o download. Caso não informado, buscará do arquivo padrão
   --idate -> data inicial dos posts
   --fdate -> data final dos posts
+  --today -> Informa a data atual para os campos de idate e fdate
   --download-dir -> pasta onde os download serão salvos. Caso não fornecido, será usada a pasta padrão
 
 Outros comandos:
