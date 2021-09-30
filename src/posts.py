@@ -22,7 +22,7 @@ def get_data_posts(user, folder, since, until):
             
         print("\nArquivos totais de " + user + ": " + str(count_posts(folder)) + "\n")
     except:
-        print("Usuário " + user + " não encontrado")
+        print("Usuário " + user + " não encontrado ou não contem posts para data informada")
         pass
 
 def get_all_posts(user, folder):
@@ -38,7 +38,7 @@ def get_all_posts(user, folder):
 
         print("\nArquivos totais de " + user + ": " + str(count_posts(folder)) + "\n")
     except:
-        print("Usuário " + user + " não encontrado")
+        print("Usuário " + user + " não encontrado ou não contem posts para data informada")
         pass
 
 def count_posts(folder):
