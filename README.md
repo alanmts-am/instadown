@@ -1,27 +1,28 @@
 # Insta Down
 
-Aqui temos o sistema que baixa posts do Instagram de determinados perfis listados ou não em determinado arquivo.
+Aqui temos o sistema que baixa posts e stories do Instagram de determinados perfis listados ou não em determinado arquivo.
 
 Podem ser baixados de determinadas datas de inicio e fim ou todos os dados.
 
-## Variáveis de ambiente
+## Argumentos de comando
 
 Aqui precisamos rodar o programa em linha de comando com os argumentos. Veja o exemplo abaixo:
 ```Shell
 py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2021 --fdate 31/07/2021 --download-dir D:\User\Example\Images\Instagram
 ```
+O exemplo acima fará a download dos posts do perfil do Instagram entre as datas 01/01/2021 e 31/07/2021, além de mover os resultados para o caminho "D:\User\Example\Images\Instagram"
 ```MarkDown
 Entendendo cada argumento:
   --post ou --story -> indica o tipo de download a ser feito 
   --profile -> indicar um perfil específico para realizar o download. Caso não informado, buscará do arquivo padrão
   --idate -> data inicial dos posts
   --fdate -> data final dos posts
-  --today -> Informa a data atual para os campos de idate e fdate
   --download-dir -> pasta onde os download serão salvos. Caso não fornecido, será usada a pasta padrão
 
 Outros comandos:
   --user -> usuário
   --pass -> senha
+  --today -> Informa a data atual para os campos de idate e fdate
   --profile-file -> arquivo onde serão buscados os perfis. Caso não informado, será usado o arquivo padrão
 ```
 
@@ -32,12 +33,13 @@ Alguns argumentos precisam ser passados em conjunto para o resultado desejado. V
 Aqui precisaremos que você informe primeiramente alguns dados em um arquivo:
 * profiles.txt
   
-OBS: este é nome padrão do arquivo de usuários. Para informar um arquivo diferente, basta usar o argumento --profile-file
+OBS: este é nome padrão do arquivo de usuários. Para informar um arquivo diferente, basta usar o argumento --profile-file  
+OBS2: Caso este não tenha sido informado explicitamente pelos seu argumento --profile-file, ele irá buscar o arquivo da raiz de onde esta sendo executado.
 ```Shell
 py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profle-file teste.txt --idate 01/01/2021 --fdate 10/01/2021
 ```
 
-É importante que o arquivo seja do tipo txt e que cada usuário seja posto em uma linha, caso contrário, o programa pode não funcionar devidamente
+É importante que o arquivo seja do tipo txt e que cada usuário seja posto em uma linha, sem espaços ou caracteres indesejados, caso contrário, o programa pode não funcionar devidamente
 
 ```Python
 USERNAME1
