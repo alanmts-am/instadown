@@ -1,49 +1,46 @@
 import os
 
 import instaloader
-from utils.create import create_directory
 from utils.extract import extract_posts_only
 
 
-def get_data_posts(user, folder, since, until):
+def get_data_posts(user, since, until):
     try:
         L = instaloader.Instaloader()
         posts = instaloader.Profile.from_username(L.context, user).get_posts()
         
         for post in posts:
             if (post.date >= since) and (post.date <= until):
-                create_directory(user)
                 print("Baixando... ")
-                L.download_post(post, user)
-                extract_posts_only(folder, user)
-                print("\nArquivos até aqui de " + user + ": " + str(count_posts(folder)) + "\n")
+                L.download_post(post, '.')
+                extract_posts_only()
+                print("\nArquivos até aqui de " + user + ": " + str(count_posts()) + "\n")
             elif post.date < since: 
                 break
             
-        print("\nArquivos totais de " + user + ": " + str(count_posts(folder)) + "\n")
+        print("\nArquivos totais de " + user + ": " + str(count_posts()) + "\n")
     except:
         print("Usuário " + user + " não encontrado ou não contem posts para data informada")
         pass
 
-def get_all_posts(user, folder):
+def get_all_posts(user):
     try:
         L = instaloader.Instaloader()
         posts = instaloader.Profile.from_username(L.context, user).get_posts()
         for post in posts:
-            create_directory(user)
             print("Baixando... ")
-            L.download_post(post, user)
-            extract_posts_only(folder, user)
-            print("\nArquivos até aqui de " + user + ": " + str(count_posts(folder)) + "\n")
+            L.download_post(post, '.')
+            extract_posts_only()
+            print("\nArquivos até aqui de " + user + ": " + str(count_posts()) + "\n")
 
-        print("\nArquivos totais de " + user + ": " + str(count_posts(folder)) + "\n")
+        print("\nArquivos totais de " + user + ": " + str(count_posts()) + "\n")
     except:
         print("Usuário " + user + " não encontrado ou não contem posts para data informada")
         pass
 
-def count_posts(folder):
+def count_posts():
     x = 0
-    items = os.listdir(folder)
+    items = os.listdir()
     for items in range(0, len(items)):
         x += 1
     return x

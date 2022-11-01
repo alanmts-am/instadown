@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime
+import os
 import sys
 
 from utils.create import create_directory
@@ -14,14 +15,17 @@ def download_all_posts_from_file(profiles_file, target_dir):
     with open(profiles_file, 'r') as file:
         line_itens = file.readlines()
     
+    create_directory(target_dir)
+    os.chdir(target_dir)
     for line_item in line_itens:
         line_item = line_item.replace('\n', '')
         get_all_posts(line_item, line_item)
         move_dirs(line_item, target_dir)
 
 def download_all_posts_from_profile(profile, target_dir):
-    get_all_posts(profile, profile)
-    move_dirs(profile, target_dir)
+    create_directory(target_dir)
+    os.chdir(target_dir)
+    get_all_posts(profile)
 
 def download_post_by_date_from_file(profiles_file, initial_date, final_date, target_dir):
     SINCE = extract_data(initial_date)
@@ -31,33 +35,33 @@ def download_post_by_date_from_file(profiles_file, initial_date, final_date, tar
         line_itens = file.readlines()
         
     create_directory(target_dir)
+    os.chdir(target_dir)
     for line_item in line_itens:
         line_item = line_item.replace('\n', '')
-        get_data_posts(line_item, line_item, SINCE, UNTIL)
-        move_dirs(line_item, target_dir)
+        get_data_posts(line_item, SINCE, UNTIL)
 
 def download_post_by_date_from_profile(profiles_name, initial_date, final_date, target_dir):
     SINCE = extract_data(initial_date)
     UNTIL = increase_data_days(final_date, 1)
 
     create_directory(target_dir)
-    get_data_posts(profiles_name, profiles_name, SINCE, UNTIL)
-    move_dirs(profiles_name, target_dir)
+    os.chdir(target_dir)
+    get_data_posts(profiles_name, SINCE, UNTIL)
 
 def download_story_from_file(user, pwsrd, profiles_file, target_dir):
     with open(profiles_file, 'r') as file:
         line_itens = file.readlines()
     
+    create_directory(target_dir)
+    os.chdir(target_dir)
     for line_item in line_itens:
         line_item = line_item.replace('\n', '')
-        create_directory(target_dir)
         get_stories(user, pwsrd, line_item)
-        move_dirs(line_item, target_dir)
 
 def download_story_from_profile(user, pwsrd, profile_name, target_dir):
     create_directory(target_dir)
+    os.chdir(target_dir)
     get_stories(user, pwsrd, profile_name)
-    move_dirs(profile_name, target_dir)
 
 def main():
     parser = argparse.ArgumentParser()
