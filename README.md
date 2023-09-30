@@ -1,6 +1,6 @@
 # Insta Down
 
-Aqui temos o sistema que baixa posts e stories do Instagram de determinados perfis listados ou não em determinado arquivo.
+Aqui temos o sistema que baixa posts do Instagram de determinados perfis listados ou não em determinado arquivo.
 
 Podem ser baixados de determinadas datas de inicio e fim ou todos os dados.
 
@@ -13,7 +13,7 @@ py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 01/01/2
 O exemplo acima fará a download dos posts do perfil do Instagram entre as datas 01/01/2021 e 31/07/2021, além de mover os resultados para o caminho "D:\User\Example\Images\Instagram"
 ```MarkDown
 Entendendo cada argumento:
-  --post ou --story -> indica o tipo de download a ser feito 
+  --post -> indica o tipo de download a ser feito 
   --profile -> indicar um perfil específico para realizar o download. Caso não informado, buscará do arquivo padrão
   --idate -> data inicial dos posts
   --fdate -> data final dos posts
@@ -88,22 +88,6 @@ Caso deseje informar um novo arquivo para onde as imagens devam ir, basta utiliz
 ```Shell
 py {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 01/01/2021 --fdate 10/01/2021 --download-dir example
 ```
-
-## Stories 
-
-A funcionalidade segue os mesmos moldes do que já se vem sendo visto, necessitando agora da inserção de usuário e senha além do argumento --story ao invés de --post.
-
-Para os casos onde os mesmos serão extraídos do arquivo profiles:
-```Shell
-py {CAMINHO_DO_ARQUIVO}/insta_down.py --story --username teste --password abcd1234
-```
-
-Já quando necessitar informar perfil específico, basta inserir o argumento --profile
- ```Shell
-py {CAMINHO_DO_ARQUIVO}/insta_down.py --story --profile instagram --username teste --password abcd1234
-```
-
-Perceba que os stories não há verificação temporal devido a sua natureza de ficar visualizavel por 24h
 ## Motor de Busca
 
 Todos os créditos devem ser dados ao módulo Python do projeto instaloader.  
