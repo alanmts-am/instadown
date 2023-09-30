@@ -12,12 +12,12 @@ def get_data_posts(user, since, until):
         for post in posts:
             if (post.date >= since) and (post.date <= until):
                 print("Baixando... ")
-                L.download_post(post, '.')
-                extract_posts_only()
-                print("\nArquivos até aqui de " + user + ": " + str(count_posts()) + "\n")
+                L.download_post(post, user)
             elif post.date < since: 
                 break
             
+        os.chdir(user)
+        extract_posts_only()
         print("\nArquivos totais de " + user + ": " + str(count_posts()) + "\n")
     except:
         print("Usuário " + user + " não encontrado ou não contem posts para data informada")
