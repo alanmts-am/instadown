@@ -3,10 +3,10 @@ from datetime import datetime as dtclass
 import datetime as dtpack
 
 def extract_data(data):
-    return dtclass.strptime(data, '%d/%m/%Y')
+    return dtclass.strptime(data, '%Y-%m-%d')
 
 def increase_data_days(data, days_):
-    return dtclass.strptime(data, '%d/%m/%Y') + dtpack.timedelta(days = days_)
+    return dtclass.strptime(data, '%Y-%m-%d') + dtpack.timedelta(days = days_)
 
 def extract_posts_only():
     items = os.listdir()
