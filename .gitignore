@@ -1,4 +1,4 @@
 __pycache__
-profiles.txt
-files/
-venv/
+profiles/
+venv
+.vscode

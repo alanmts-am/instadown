@@ -1,7 +1,7 @@
 import os
 
-def create_directory(log_directory):
-    if os.path.exists(log_directory):
-        print("Pasta " + log_directory + " já criada")
+def create_directory(path):
+    if os.path.exists(path):
+        return
     else: 
-        os.makedirs(log_directory)
+        os.makedirs(path)
