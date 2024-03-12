@@ -43,7 +43,7 @@ Aqui precisaremos que você informe primeiramente alguns dados em um arquivo:
 OBS: este é nome padrão do arquivo de usuários. Para informar um arquivo diferente, basta usar o argumento --file  
 OBS2: Caso este não tenha sido informado explicitamente pelos seu argumento --file, ele irá buscar o arquivo da raiz de onde esta sendo executado.
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --file teste.json --idate 2024-01-01 --fdate 2024-01-10
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --file teste.json --idate 2024-01-01 --fdate 2024-01-10
 ```
 
 É importante que o arquivo seja do tipo JSON e que cada usuário seja posto dentro do array "profiles".
@@ -67,14 +67,14 @@ Aqui temos o comando onde podem ser gerados todos os posts de um determinado per
 
 Por exemplo:
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --profile instagram
 ```
 
 Já quando quisermos gerar os posts de todos os perfis listados no arquivo profiles, basta omitir o argumento --profile
 
 Por exemplo, basta informar apenas o tipo:
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post
 ```
 
 ## Todos os post por data
@@ -83,12 +83,12 @@ Aqui temos o comando onde podem ser gerados todos os posts em determinado period
 
 Por exemplo, basta o tipo, perfil e os argumentos de data:
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 2024-01-01 --fdate 2024-01-10
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --profile instagram --idate 2024-01-01 --fdate 2024-01-10
 ```
 
 Já a situação onde seja necessário buscar através da lista de perfis, basta omitir o argumento --profile:
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 2024-01-01 --fdate 2024-01-10
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --idate 2024-01-01 --fdate 2024-01-10
 ```
 
 ## Mover arquivos
@@ -97,7 +97,7 @@ Por padrão, todas as pastas são salvas em 'files', cada uma em seu respectivo 
 
 Caso deseje informar um novo arquivo para onde as imagens devam ir, basta utilizar o argumento --target
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --idate 2024-01-01 --fdate 2024-01-10 --target example
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --idate 2024-01-01 --fdate 2024-01-10 --target example
 ```
 ## Motor de Busca
 
