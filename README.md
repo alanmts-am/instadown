@@ -11,13 +11,13 @@ Podem ser baixados de determinadas datas de inicio e fim ou todos os dados.
 - [x] Baixar de diversos perfis informados em arquivos
 - [ ] Baixar stories [provável]
 - [ ] Baixar de contas privadas com login [remoto]
-- [ ] Analytics; estatíticas de perfis [provável]
+- [ ] Analytics; estatísticas de perfis [provável]
 
 ## Argumentos de comando
 
 Aqui precisamos rodar o programa em linha de comando com os argumentos. Veja o exemplo abaixo:
 ```Shell
-python {CAMINHO_DO_ARQUIVO}/insta_down.py --post --profile instagram --idate 2024-01-01 --fdate 2024-01-31 --download-dir D:\User\Example\Images\Instagram
+python {CAMINHO_DO_ARQUIVO}/instadown.py --post --profile instagram --idate 2024-01-01 --fdate 2024-01-31 --download-dir D:\User\Example\Images\Instagram
 ```
 O exemplo acima fará a download dos posts do perfil do Instagram entre as datas 01/01/2024 e 31/01/2024, além de mover os resultados para o caminho "D:\User\Example\Images\Instagram"
 ```MarkDown
